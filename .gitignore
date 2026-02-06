@@ -1,0 +1,9 @@
+# Ignore Airflow metadata and logs
+logs/
+plugins/
+config/
+__pycache__/
+
+# Ignore datasets (optional but recommended for GitHub)
+*.csv
+*.xlsx

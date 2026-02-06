@@ -1,0 +1,5 @@
+renamed downloaded datasets as data1,data2,data3 (csv)
+then run joined.py(joining the datasets)
+then run data_pre.py(iqr filer,data_cleaning, min max price ceilings and finally mean median grouping)
+finally run final_violation_check.py
+run map.py to map models
