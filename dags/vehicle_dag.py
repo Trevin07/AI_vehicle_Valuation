@@ -27,22 +27,23 @@ with DAG(
     
     join_task = BashOperator(
         task_id='1_Join_Files',
-        bash_command=f'python {scripts_dir}/joined.py'
+        bash_command=f'cd {scripts_dir} && python joined.py'
     )
 
     clean_task = BashOperator(
         task_id='2_Data_Cleaning_IQR',
-        bash_command=f'python {scripts_dir}/data_pre.py'
+        bash_command=f'cd {scripts_dir} && python data_pre.py'
     )
 
     violation_task = BashOperator(
-        task_id='3_Mean_Median_Filling',
-        bash_command=f'python {scripts_dir}/final_violation_check.py'
+        task_id='violation_check',
+        bash_command=f'cd {scripts_dir} && python final_violation_check.py'
     )
 
     mapping_task = BashOperator(
-        task_id='4_NLP_ERP_Mapping',
-        bash_command=f'python {scripts_dir}/mapping_final.py'
+    task_id='4_NLP_ERP_Mapping',
+    # Note: 'python' should ONLY appear after the '&&'
+    bash_command=f'cd {scripts_dir} && python mapping_final.py'
     )
 
     # Define the sequence
